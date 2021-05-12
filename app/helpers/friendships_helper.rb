@@ -1,17 +1,17 @@
 module FriendshipsHelper
   # Users who are yet to be confirmed as friends
   def pending_friends
-    friendships.map{|friendship| friendship.friend if !friendship.status}.compact
+    friendships.map { |friendship| friendship.friend unless friendship.status }.compact
   end
 
   # Users who have requested to be friends
   def friend_requests
-    inverse_friendships.map{|friendship| friendship.user if !friendship.status}.compact
+    inverse_friendships.map { |friendship| friendship.user unless friendship.status }.compact
   end
 
   # Method to confirm friend request
   def confirm_friend(user)
-    friendship = inverse_friendships.find{|friendship| friendship.user == user}
+    friendship = inverse_friendships.find { |friendship| friendship.user == user }
     friendship.status = true
     friendship.save
   end
