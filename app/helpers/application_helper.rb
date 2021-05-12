@@ -26,5 +26,4 @@ module ApplicationHelper
     friendship = friend_requests.find { |f| f.user == user }
     friendship.destroy
   end
-  
 end
