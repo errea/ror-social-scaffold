@@ -21,6 +21,7 @@ class FriendshipsController < ApplicationController
 
   # POST /friendships or /friendships.json
   def create
+    @user = User.find(params[:user_id])    
     @friendship = Friendship.new(friendship_params)
 
     respond_to do |format|
