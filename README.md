@@ -32,7 +32,7 @@ Timeline page should be the root page of the app. A project completed as part of
 
 ## Built With
 
-- Ruby v2.7.0
+- Ruby v3.0.0
 - Ruby on Rails v5.2.4
 
 ## Live Demo
