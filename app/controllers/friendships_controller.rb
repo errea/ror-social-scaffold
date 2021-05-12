@@ -22,39 +22,31 @@ class FriendshipsController < ApplicationController
   # POST /friendships or /friendships.json
   def create
     @user = User.find(params[:user_id])    
-    @friendship = Friendship.new(friendship_params)
+    @friendship = current_user.friendships.new(friend_id: params[:user_id])
 
-    respond_to do |format|
-      if @friendship.save
-        format.html { redirect_to @friendship, notice: "Friendship was successfully created." }
-        format.json { render :show, status: :created, location: @friendship }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @friendship.errors, status: :unprocessable_entity }
-      end
+    if @friendship.save
+      redirect_to users_path,
+      notice: "Woohoo!!! You invited a  #{@friendship.friend.name}!"
+    else
+      redirect_to users_path, alert: 'Friend Request Failed!'
     end
-  end
 
+  end  
   # PATCH/PUT /friendships/1 or /friendships/1.json
+
   def update
-    respond_to do |format|
-      if @friendship.update(friendship_params)
-        format.html { redirect_to @friendship, notice: "Friendship was successfully updated." }
-        format.json { render :show, status: :ok, location: @friendship }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @friendship.errors, status: :unprocessable_entity }
-      end
-    end
+    # friend = User.find_by(id: params[:user_id])
+    friend = User.find(params[:user_id])
+    current_user.confirm_friend(friend)
+    redirect_to user_path, notice: "#{friend.name} is now your friend ! "
   end
 
   # DELETE /friendships/1 or /friendships/1.json
   def destroy
-    @friendship.destroy
-    respond_to do |format|
-      format.html { redirect_to friendships_url, notice: "Friendship was successfully destroyed." }
-      format.json { head :no_content }
-    end
+    friendship = Friendship.find(params[:id])
+    friend = friendship.user
+    current_user.reject_friend(friend)
+    redirect_to user_path, notice: "Rejected #{friend.name}'s Friend Request!"
   end
 
   private
