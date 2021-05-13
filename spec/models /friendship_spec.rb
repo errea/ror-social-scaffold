@@ -1,4 +1,4 @@
-require 'rails_helper'
+# require 'rails_helper'
 
 RSpec.describe Friendship, type: :model do
   let(:user1) { User.create(name: 'user1', email: 'user1@myemail.com', password: 'password') }
