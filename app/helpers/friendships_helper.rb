@@ -11,7 +11,7 @@ module FriendshipsHelper
 
   # Method to confirm friend request
   def confirm_friend(user)
-    friendship = inverse_friendships.find { |f| f.user == user }
+    friendship = inverse_friendships.find_by(user_id: user.id)
     friendship.status = true
     friendship.save
   end
