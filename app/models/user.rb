@@ -39,6 +39,12 @@ class User < ApplicationRecord
     friendship.destroy
   end
 
+  def send_request(user)
+    friendship = inverse_friendships.find_by(user_id: user.id)
+    friendship.send = true
+    friendship.destroy
+  end
+
   def cancel_request(user)
     friendship = friendships.find_by(friend_id: user.id)
     friendship.destroy
