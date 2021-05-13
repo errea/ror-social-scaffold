@@ -3,7 +3,7 @@
 RSpec.describe Friendship, type: :model do
   let(:user1) { User.create(name: 'user1', email: 'user1@myemail.com', password: 'password') }
   let(:user2) { User.create(name: 'user2', email: 'user2@myemail.com', password: 'password') }
-  let(:new_friendship) { Friendship.create(user: user1, friend: user2) }
+  let(:new_friendship) { Friendship.create(user: user1, friend: user2, status: false) }
   let(:new_invalid_friendship) { Friendship.create(user: user1) }
   describe 'Friendships can be created' do
     it 'sets default value of false to confirmed' do
@@ -17,7 +17,7 @@ RSpec.describe Friendship, type: :model do
       expect(new_invalid_friendship.valid?).to be(false)
     end
     it 'checks if user have friends :)' do
-      new_friendship.confirmed = true
+      new_friendship.status = true
       new_friendship.save
       expect(user1.friends.size).to eq(1)
     end
