@@ -1,5 +1,27 @@
 <section class="user-section">
-  <h2><%= "Name: #{@user.name}" %></h2>
+  <h2>
+    <%=  @user.name %><small><em><%= button_display(@user) %></em></small></h2>
+          
+    <br></br>
+   <%= button_display(@user) %>
+
+   <article class="timeline">
+  	<h4>Pending Request:</h4>
+  	 <ul class="posts">
+      <% @pending.each do |user|%>
+        <li><%= user.name %> </li>
+      <% end %>
+    </ul>
+	</article>
+  
+    <article class="timeline">
+    <h3>Requested Invitations:</h3>   
+    <ul class="posts">
+      <% @requests.each do |user|%>
+          <li><%= user.name %> <%= button_display(invitee) %></li>
+      <% end %>
+    </ul>
+  </article>
   <article class="timeline">
     <h3>Recent posts:</h3>
     <ul class="posts">
