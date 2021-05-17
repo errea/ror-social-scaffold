@@ -23,15 +23,19 @@ class User < ApplicationRecord
 
   has_many :inverted_friendships, -> { where confirmed: false }, class_name: 'Friendship', foreign_key: 'friend_id'
 
+  has_many :requested_friends, -> { where status: false }, class_name: 'Friendship', foreign_key: 'friend_id'
+
+
   def friends
     friends_array = friendships.map { |friendship| friendship.friend if friendship.status }
     friends_array.compact
   end
 
   def confirm_friend(user)
-    friendship = inverse_friendships.find_by(user_id: user.id)
-    friendship.status = true
-    friendship.save
+    friend = Friendship.find_by(user_id: user.id, friend_id: id)
+    friend.status = true
+    friend.save
+    Friendship.create!(user_id: id, friend_id: user.id, status: true)
   end
 
   def reject_friend(user)
