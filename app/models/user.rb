@@ -25,7 +25,6 @@ class User < ApplicationRecord
 
   has_many :requested_friends, -> { where status: false }, class_name: 'Friendship', foreign_key: 'friend_id'
 
-
   def friends
     friends_array = friendships.map { |friendship| friendship.friend if friendship.status }
     friends_array.compact
