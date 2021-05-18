@@ -4,32 +4,12 @@
           
     <br></br>
    <%= button_display(@user) %>
-
-  <%
-=begin%>
- <article class="timeline">
-  	<h4>Pending Request:</h4>
-  	 <ul class="posts">
-     <% @user.pending_friends.each do |user|%>
-        <li><%= user.name %> </li>
-      <% end %>
-    </ul>
-	</article>
-
-    <article class="timeline">
-    <h3>Requested Invitations:</h3>   
-    <ul class="posts">
-      <% @user.friend_requests.each do |user|%>
-          <li><%= user.name %> <%= button_display(invitee) %></li>
-      <% end %>
-    </ul>
-  </article> 
-<%
-=end%>
+  <% if current_user.id == @user.id %> 
   <article class="timeline">
     <h3>Recent posts:</h3>
     <ul class="posts">
       <%= render @posts %>
     </ul>
   </article>
+  <%end%>
 </section>
