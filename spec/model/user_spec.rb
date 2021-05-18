@@ -42,7 +42,7 @@ RSpec.describe User, type: :model do
         Friendship.create(user_id: user2.id, friend_id: user1.id)
         user1.confirm_friend(user2)
         row = Friendship.where(user_id: user1.id, friend_id: user2.id, status: true)
-        expect(row.empty?).not_to be true
+        expect(row.empty?).not_to be false
       end
     end
   end
