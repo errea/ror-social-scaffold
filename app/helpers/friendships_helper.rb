@@ -20,6 +20,4 @@ module FriendshipsHelper
   # def friend?(user)
   #   friends.include?(user)
   # end
-
-  
 end

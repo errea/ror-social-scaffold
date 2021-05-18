@@ -16,7 +16,7 @@ module UsersHelper
     elsif !current_user.friend?(user) && current_user != user
       link_to('Add Friend', friendships_path(user_id: user.id), method: :post, class: 'user-button')
     end
-  end  
+  end
 end
 # rubocop:enable Lint/UselessAssignment
 # rubocop:enable Layout/LineLength
