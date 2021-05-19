@@ -4,7 +4,7 @@
           
     <br></br>
    <%= button_display(@user) %>
-  <% if current_user.id == @user.id || !current_user.friends_and_own_posts%> 
+  <% if current_user.id == @user.id || current_user.friends_and_own_posts%> 
   <article class="timeline">
     <h3>Recent posts:</h3>
     <ul class="posts">
