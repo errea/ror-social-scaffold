@@ -15,8 +15,4 @@ module ApplicationHelper
       link_to('Like!', post_likes_path(post_id: post.id), method: :post)
     end
   end
-<<<<<<< HEAD
-=======
-
->>>>>>> e7e1174448b2e92dae2e1fcaddce02644e4c027c
 end
