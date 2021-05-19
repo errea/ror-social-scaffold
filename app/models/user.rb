@@ -34,10 +34,6 @@ class User < ApplicationRecord
     friendship = inverse_friendships.find_by(user_id: user.id)
     friendship.status = true
     friendship.save
-    # friend = Friendship.find_by(user_id: user.id, friend_id: id)
-    # friend.status = true
-    # friend.save
-    # Friendship.create!(user_id: id, friend_id: user.id, status: true)
   end
 
   def reject_friend(user)
