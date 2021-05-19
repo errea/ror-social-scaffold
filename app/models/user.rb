@@ -59,6 +59,12 @@ class User < ApplicationRecord
   def friend_requests
     Friendship.where(friend_id: id, status: false)
   end
+  
+  def user_friend
+    friend_ids = friends.map(&:id)
+    friend_ids << id
+    Post.all.where(user_id: friend_ids)
+  end
 
   def friends_and_own_posts
     Post.where(user: (friends.to_a << self))

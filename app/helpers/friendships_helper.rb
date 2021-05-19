@@ -8,4 +8,8 @@ module FriendshipsHelper
   def friend_requests
     inverse_friendships.map { |friendship| friendship.user unless friendship.status }.compact
   end
+<<<<<<< HEAD
+=======
+
+>>>>>>> e7e1174448b2e92dae2e1fcaddce02644e4c027c
 end
