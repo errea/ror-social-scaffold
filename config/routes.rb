@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  post '/create' => 'friendships#create'
   resources :friendships
   root 'posts#index'
 
@@ -11,8 +12,8 @@ Rails.application.routes.draw do
     resources :comments, only: [:create]
     resources :likes, only: [:create, :destroy]
   end
-  post '/accept' => 'friendships#create' 
+  post '/accept' => 'friendships#accept' 
   put '/reject' => 'friendships#reject'
-  post '/cancel' => 'friendships#cancel'
+  post '/cancel' => 'friendships#cancel'  
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
