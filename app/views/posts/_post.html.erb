@@ -16,13 +16,17 @@
     <p class ="comments"><%= post.comments.count %> Comments</p>
     <p class ="comments"><%= post.likes.count %>likes</p>
 
-    <% post.comments.eah do  |comment| %>
+    <% post.comments.each do  |comment| %>
 
     <div class ="post-comments">
       <p>
-        <b> <%= comments.user.name%>: </b><%= comments.content%>
+        <b> <%= comment.user.name%>: </b><%= comment.content%>
       </p>
-      <span> <%= comment.created_at.srtrftime("%Y/%m/%d") %></span>
+      <%
+=begin%>
+ <span> <%= comment.created_at.srtrftime("%Y/%m/%d") %></span> 
+<%
+=end%>
       <%end %>
     </div>
 
