@@ -13,7 +13,20 @@
   </p>
 
   <div class='post-comments-section'>
-    <%= render partial: 'comments/comment', collection: post.comments %>
+    <p class ="comments"><%= post.comments.count %> Comments</p>
+    <p class ="comments"><%= post.likes.count %>likes</p>
+
+    <% post.comments.eah do  |comment| %>
+
+    <div class ="post-comments">
+      <p>
+        <b> <%= comments.user.name%>: </b><%= comments.content%>
+      </p>
+      <span> <%= comment.created_at.srtrftime("%Y/%m/%d") %></span>
+      <%end %>
+    </div>
+
+    <!-- <%= render partial: 'comments/comment', collection: post.comments %> -->
 
     <%= form_for(post.comments.new, url: post_comments_path(post)) do |form| %>
       <%= form.text_field :content, id: :comment_content, class: 'form-control', placeholder: 'Add new Comment' %>

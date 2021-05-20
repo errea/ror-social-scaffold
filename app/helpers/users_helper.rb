@@ -21,19 +21,7 @@ module UsersHelper
     elsif !current_user.friend?(user) && current_user != user
       link_to('Add Friend', friendships_path(user_id: user.id), method: :post, class: 'user-button')
     end
-    # res = ''
-    # return if current_user.id == user.id 
-    # return if current_user.friend?(user)
-    # if current_user.pending_friends.include?(user)
-    # res << link_to('pending', '#') 
-    # elsif current_user.friend_requests.include?(user)
-    # res << link_to('Accept', users_path(user_id: user.id), method: :put) 
-    # res << ' | '      
-    # res << link_to('Reject', reject_path(user_id: user.id), method: :delete)    
-    # else 
-    #  res << link_to('Add Friend', friendships_path(user_id: user.id), method: :post)    
-    # end
-    # res.html_safe
+    
   end  
 end
 # rubocop:enable Lint/UselessAssignment
