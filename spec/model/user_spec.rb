@@ -37,5 +37,13 @@ RSpec.describe User, type: :model do
       user2.reject_friend(user1)
       expect(user1.friend?(user2)).to be false
     end
+    describe '2 rows for mutual friendship' do
+      it 'creates a second row when invitation is confirmed' do
+        Friendship.create(user_id: user2.id, friend_id: user1.id)
+        user1.confirm_friend(user2)
+        row = Friendship.where(user_id: user1.id, friend_id: user2.id, status: true)
+        expect(row.empty?).not_to be true
+      end
+    end
   end
 end
