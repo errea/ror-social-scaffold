@@ -23,6 +23,4 @@ class Friendship < ApplicationRecord
     update_attributes(confirmed: true)
     Friendship.create!(friend_id: user_id, user_id: friend_id, status: true)
   end
-
-
 end

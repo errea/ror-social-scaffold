@@ -1,7 +1,7 @@
 class FriendshipsController < ApplicationController
   def create
-    @friendship = current_user.friendships.build(friend_id: params[:user_id]) 
-      @friendship.status = false
+    @friendship = current_user.friendships.build(friend_id: params[:user_id])
+    @friendship.status = false
     if @friendship.save
       redirect_to users_path, notice: 'Friend request sent!'
     else
@@ -13,8 +13,6 @@ class FriendshipsController < ApplicationController
     current_user.confirm_friend(User.find_by(id: params[:user_id]))
     redirect_to users_path
   end
-
-
 
   def reject
     current_user.reject_friend(User.find_by(id: params[:user_id]))
@@ -39,5 +37,4 @@ class FriendshipsController < ApplicationController
     friendship.send = true
     friendship.destroy
   end
-
 end

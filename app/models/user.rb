@@ -57,9 +57,9 @@ class User < ApplicationRecord
   end
 
   def friend_requests
-    inverse_friendships.map{|friendship| friendship.user if !friendship.status}.compact
+    inverse_friendships.map { |friendship| friendship.user unless friendship.status }.compact
   end
-  
+
   def user_friend
     friend_ids = friends.map(&:id)
     friend_ids << id

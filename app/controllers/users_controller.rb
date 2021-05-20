@@ -14,19 +14,19 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:user_id])
-    if current_user.confirm_friend(@user) 
-      redirect_to users_path, notice: "Your friend was accepted ! "
-    else 
-      redirect_to users_path, alert: "Friend request failed !"
-    end 
+    if current_user.confirm_friend(@user)
+      redirect_to users_path, notice: 'Your friend was accepted ! '
+    else
+      redirect_to users_path, alert: 'Friend request failed !'
+    end
   end
-  
+
   def destroy
-    @user = User.find(params[:user_id]) 
+    @user = User.find(params[:user_id])
     if current_user.reject_friend(@user)
-      redirect_to users_path, notice: "Your friend was rejected ! "
-    else 
-      redirect_to users_path, alert: "Your request is pending ! "
-    end  
-  end 
+      redirect_to users_path, notice: 'Your friend was rejected ! '
+    else
+      redirect_to users_path, alert: 'Your request is pending ! '
+    end
+  end
 end
