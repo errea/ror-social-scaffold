@@ -33,7 +33,19 @@ Timeline page should be the root page of the app. A project completed as part of
 - Ruby on Rails v5.2.4
 
 ## Live Demo
-[App Live Demo](https://whispering-dawn-09817.herokuapp.com/users/sign_in)
+
+[Demo Link](https://whispering-dawn-09817.herokuapp.com/users/sign_in)
+
+### Heroku Commands Used
+
+To make sure the linters' checks using Github Actions work properly, you should follow the next steps:
+
+1. heroku run rails db:migrate
+2. heroku create
+3. git remote -v
+4. heroku` git:remote -a whispering-dawn-09817`
+5. git push heroku master
+6. heroku run rake.
 
 ## Getting Started
 
