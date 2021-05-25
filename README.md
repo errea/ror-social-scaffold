@@ -37,8 +37,6 @@ Timeline page should be the root page of the app. A project completed as part of
 ## Live Demo
 [Live Demo](https://whispering-dawn-09817.herokuapp.com/users/sign_in)
 
-TBA
-
 
 ## Getting Started
 
@@ -46,7 +44,7 @@ To get a local copy up and running follow these simple example steps.
 
 ### Prerequisites
 
-Ruby: 2.6.3
+Ruby: 3.0.0
 Rails: 5.2.3
 Postgres: >=9.5
 
