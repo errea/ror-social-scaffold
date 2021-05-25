@@ -1,5 +1,5 @@
 require 'rails_helper'
-#friendship feature
+# friendship feature
 RSpec.feature 'Friendship invitation', type: :feature do
   before(:each) do
     @user1 = User.create(name: 'eri', email: 'eri@.com', password: '123456')
