@@ -3,6 +3,7 @@ RSpec.describe 'Login a user', type: :feature do
   before(:each) do
     @user = User.create(name: 'julius', email: 'julius@.com', password: '123456')
   end
+  
   it 'valid inputs' do
     visit user_session_path
     fill_in 'user[email]', with: 'julius@.com'

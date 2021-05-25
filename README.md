@@ -45,7 +45,8 @@ To make sure the linters' checks using Github Actions work properly, you should 
 3. git remote -v
 4. heroku` git:remote -a whispering-dawn-09817`
 5. git push heroku master
-6. heroku run rake.
+6. 
+7. heroku run rake.
 
 ## Getting Started
 
