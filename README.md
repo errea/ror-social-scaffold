@@ -3,10 +3,8 @@
 # Scaffold for social media app with Ruby on Rails
 
 > This repo includes intial code for social media app with basic styling. Its purpose is to be a starting point for Microverse students.
-
 ># [Collaborative project] - [Stay in Touch]
 >Here is a description of business requirements for your app:
-
 
 We need to build a social media app called “Stay in touch”.
 
@@ -35,8 +33,7 @@ Timeline page should be the root page of the app. A project completed as part of
 - Ruby on Rails v5.2.4
 
 ## Live Demo
-[Live Demo](https://whispering-dawn-09817.herokuapp.com/users/sign_in)
-
+[App Live Demo](https://whispering-dawn-09817.herokuapp.com/users/sign_in)
 
 ## Getting Started
 
@@ -71,7 +68,6 @@ To make sure the linters' checks using Github Actions work properly, you should 
 2. Create the `feature/branch` and push.
 3. Start working on your milestone as usual.
 4. Open a PR from the `feature/branch` when your work is done.
-
 
 ### Usage
 
@@ -156,4 +152,3 @@ Give a ⭐️ if you like this project!
 ## 📝 License
 
 This project is [MIT](./MIT.md) licensed.
-
