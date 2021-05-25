@@ -1,7 +1,9 @@
 {
   "name": "ror_social_scaffold",
   "private": true,
-  "dependencies": {},
+  "dependencies": {
+    "pg": "^8.6.0"
+  },
   "devDependencies": {
     "stylelint": "^13.3.3",
     "stylelint-config-standard": "^20.0.0",
