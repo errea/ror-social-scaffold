@@ -1,6 +1,5 @@
 class CommentsController < ApplicationController
   def index
-    # @comments = Comment.all
     @comments = Post.find(params[:post_id]).comments
     respond_to do |format|
       format.html # index.html.erb
