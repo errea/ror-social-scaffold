@@ -2,8 +2,13 @@ class PostsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @post = Post.new
-    timeline_posts
+    @posts = Post.all
+
+    respond_to do |format|
+      format.json { render json: @posts }
+      format.html # index.html.erb
+      format.xml { render xml: @posts }
+    end
   end
 
   def create
