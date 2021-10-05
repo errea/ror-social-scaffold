@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   resources :users, only: [:index, :show]
   resources :friendships, only: [:new, :create, :destroy, :show]
   resources :posts, only: [:index, :create] do
-    resources :comments, only: [:create]
+    resources :comments, only: [:index, :create]
     resources :likes, only: [:create, :destroy]
   end
   post '/accept' => 'friendships#accept' 
