@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  # before_action :authenticate_user!
+  before_action :authenticate_user!
 
   def index
     # @post = Post.new
@@ -7,9 +7,9 @@ class PostsController < ApplicationController
     @posts = Post.all
     
     respond_to do |format|
+      format.json { render :json => @posts }
       format.html # index.html.erb
       format.xml  { render :xml => @posts }
-      format.json { render :json => @posts }
     end
   end
 

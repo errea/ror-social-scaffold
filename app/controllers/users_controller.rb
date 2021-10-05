@@ -1,13 +1,13 @@
 class UsersController < ApplicationController
-  # before_action :authenticate_user!
+  before_action :authenticate_user!
 
   def index
     @users = User.all
 
     respond_to do |format|
+      format.json { render :json => @users }
       format.html # index.html.erb
       format.xml  { render :xml => @users }
-      format.json { render :json => @users }
     end
     @friendship = current_user.friendships.build
   end

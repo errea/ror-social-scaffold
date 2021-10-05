@@ -2,9 +2,9 @@ class CommentsController < ApplicationController
   def index
     @comments = Post.find(params[:post_id]).comments
     respond_to do |format|
+      format.json { render :json => @comments }
       format.html # index.html.erb
       format.xml  { render :xml => @comments }
-      format.json { render :json => @comments }
     end
   end
 
